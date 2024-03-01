@@ -106,8 +106,6 @@ const callbacks = {
 
 class App {
   static init() {
-    const data = DataService.getData();
-    StylesCreator.init();
     const dialogWrapper = ElementFactory.createElement(
       'div',
       'greetingsButtonTM__wrapper'
