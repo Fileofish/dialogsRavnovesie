@@ -9,4 +9,4 @@ iframe.style.left = '0';
 iframe.style.border = 'none';
 iframe.style.zIndex = '1000';
 
-document.body.prependChild(iframe);
+document.body.prepend(iframe);
