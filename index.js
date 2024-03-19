@@ -6,6 +6,9 @@ button.style.top = '0';
 button.style.right = '0';
 button.style.width = '100px';
 button.style.height = '100px';
+button.style.zIndex = '1001';
+button.style.backgroundColor = 'white';
+button.style.borderRadius = '12px';
 
 button.addEventListener('click', () => alert('Hi!'));
 
