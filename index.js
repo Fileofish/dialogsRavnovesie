@@ -15,35 +15,30 @@ function setStyles() {
   );
   const buttonButton = document.querySelector('.quiz-plugin__button');
 
-  if (
-    (likeButton ||
-      window.location.href.includes('127.0.0.1') ||
-      window.location.href.includes('dialogsravnovesiedev.netlify.app')) &&
-    buttonButton
-  ) {
-    setTimeout(() => {
-      if (buttonButton) buttonButton.classList.add('visible');
-    }, 0);
-    if (likeButton && window.innerWidth > 1279) {
-      const likeButtonRect = likeButton.getBoundingClientRect();
-      const topPosition = likeButtonRect.top + window.pageYOffset;
-      const rightPosition =
-        document.documentElement.scrollWidth -
-        (likeButtonRect.left + likeButtonRect.width + window.pageXOffset);
+  setTimeout(() => {
+    if (buttonButton) buttonButton.classList.add('visible');
+  }, 0);
 
-      buttonButton.style.width =
-        buttonButton.style.height =
-        buttonWrapper.style.height =
-        buttonWrapper.style.width =
-          likeButtonRect.width + 'px';
+  console.log('likeButton', likeButton);
+  if (likeButton && window.innerWidth > 1279) {
+    const likeButtonRect = likeButton.getBoundingClientRect();
+    const topPosition = likeButtonRect.top + window.pageYOffset;
+    const rightPosition =
+      document.documentElement.scrollWidth -
+      (likeButtonRect.left + likeButtonRect.width + window.pageXOffset);
 
-      buttonWrapper.style.top = topPosition + 'px';
-      buttonWrapper.style.right =
-        rightPosition +
-        likeButtonRect.width +
-        (0.625 * window.innerWidth) / 100 +
-        'px';
-    }
+    buttonButton.style.width =
+      buttonButton.style.height =
+      buttonWrapper.style.height =
+      buttonWrapper.style.width =
+        likeButtonRect.width + 'px';
+
+    buttonWrapper.style.top = topPosition + 'px';
+    buttonWrapper.style.right =
+      rightPosition +
+      likeButtonRect.width +
+      (0.625 * window.innerWidth) / 100 +
+      'px';
   }
 }
 
