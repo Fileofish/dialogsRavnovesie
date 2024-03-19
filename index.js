@@ -8,6 +8,5 @@ iframe.style.top = '0';
 iframe.style.left = '0';
 iframe.style.border = 'none';
 iframe.style.zIndex = '1000';
-iframe.style.pointerEvents = 'none';
 
 document.body.prepend(iframe);
