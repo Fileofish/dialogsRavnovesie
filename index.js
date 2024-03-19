@@ -1,4 +1,4 @@
-const iframeUrl = 'https://dialogsravnovesiedeviframe.netlify.app'
+const iframeUrl = 'https://dialogsravnovesiedeviframe.netlify.app';
 const currentScript = 'script1';
 
 function createIframeHideButton(button) {
@@ -28,10 +28,7 @@ function createOverlay() {
 }
 function createIframe() {
   const iframe = document.createElement('iframe');
-  iframe.setAttribute(
-    'src',
-    `${iframeUrl}?scriptName=${currentScript}`
-  );
+  iframe.setAttribute('src', `${iframeUrl}?scriptName=${currentScript}`);
   iframe.className = 'quiz-plugin__iframe';
   document.body.prepend(iframe);
 }
@@ -82,7 +79,8 @@ function listenIframeMessages() {
     }
     switch (event.data) {
       case 'close':
-        showButtonRemoveIframe();
+        const overlay = querySelector('.quiz-plugin__overlay');
+        showButtonRemoveIframe(overlay);
         break;
     }
   });
