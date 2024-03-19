@@ -1,14 +1,15 @@
 const button = document.createElement('button');
 
-button.innerHTML = 'Hi!'
+button.innerHTML = 'Hi!';
 button.style.position = 'fixed';
 button.style.top = '0';
 button.style.right = '0';
 button.style.width = '100px';
 button.style.height = '100px';
 
-document.body.prepend(iframe);
+button.addEventListener('click', () => alert('Hi!'));
 
+document.body.prepend(iframe);
 
 // const iframe = document.createElement('iframe');
 
