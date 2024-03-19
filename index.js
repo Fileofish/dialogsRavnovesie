@@ -1,18 +1,53 @@
 const button = document.createElement('button');
+const icon = document.createElement('div');
 
-button.innerHTML = 'Hi!';
-button.style.position = 'fixed';
-button.style.top = '0';
-button.style.right = '0';
-button.style.width = '100px';
-button.style.height = '100px';
-button.style.zIndex = '1001';
-button.style.backgroundColor = 'white';
-button.style.borderRadius = '12px';
+button.className = 'quiz-plugin__button';
+icon.className = 'quiz-plugin__button__icon';
 
 button.addEventListener('click', () => alert('Hi!'));
 
+button.append(icon);
 document.body.prepend(button);
+
+function setStyles() {
+  const likeButton = document.querySelector(
+    '.button-circle.button-circle_theme_white.favorite-state__button'
+  );
+  const buttonButton = document.querySelector('.quiz-plugin__button');
+
+  if (
+    (likeButton ||
+      window.location.href.includes('127.0.0.1') ||
+      window.location.href.includes('dialogsravnovesiedev.netlify.app')) &&
+    buttonButton
+  ) {
+    setTimeout(() => {
+      if (buttonButton) buttonButton.classList.add('visible');
+    }, 0);
+    if (likeButton && window.innerWidth > 1279) {
+      const likeButtonRect = likeButton.getBoundingClientRect();
+      const topPosition = likeButtonRect.top + window.pageYOffset;
+      const rightPosition =
+        document.documentElement.scrollWidth -
+        (likeButtonRect.left + likeButtonRect.width + window.pageXOffset);
+
+      buttonButton.style.width =
+        buttonButton.style.height =
+        buttonWrapper.style.height =
+        buttonWrapper.style.width =
+          likeButtonRect.width + 'px';
+
+      buttonWrapper.style.top = topPosition + 'px';
+      buttonWrapper.style.right =
+        rightPosition +
+        likeButtonRect.width +
+        (0.625 * window.innerWidth) / 100 +
+        'px';
+    }
+  }
+}
+
+setStyles();
 
 // const iframe = document.createElement('iframe');
 
