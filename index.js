@@ -9,7 +9,7 @@ button.style.height = '100px';
 
 button.addEventListener('click', () => alert('Hi!'));
 
-document.body.prepend(iframe);
+document.body.prepend(button);
 
 // const iframe = document.createElement('iframe');
 
