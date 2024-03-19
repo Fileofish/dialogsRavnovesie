@@ -40,7 +40,6 @@
   z-index: 1001; 
   border-radius: 16px 16px 0 0;
 }
-
 .quiz-plugin__overlay {
   position: fixed;
   top: 0;
@@ -51,7 +50,6 @@
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
-
 .quiz-plugin__overlay.hidden,
 .quiz-plugin__button.hidden {
   display: none;
