@@ -29,7 +29,7 @@ function createIframe() {
   const iframe = document.createElement('iframe');
   iframe.setAttribute(
     'src',
-    `https://dialogsravnovesiedev.netlify.app/?scriptName=${currentScript}`
+    `https://dialogsravnovesiedeviframe.netlify.app/?scriptName=${currentScript}`
   );
   iframe.className = 'quiz-plugin__iframe';
   document.body.prepend(iframe);
