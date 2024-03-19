@@ -1,3 +1,4 @@
+const iframeUrl = 'https://dialogsravnovesiedeviframe.netlify.app'
 const currentScript = 'script1';
 
 function createIframeHideButton(button) {
@@ -29,7 +30,7 @@ function createIframe() {
   const iframe = document.createElement('iframe');
   iframe.setAttribute(
     'src',
-    `https://dialogsravnovesiedeviframe.netlify.app/?scriptName=${currentScript}`
+    `${iframeUrl}?scriptName=${currentScript}`
   );
   iframe.className = 'quiz-plugin__iframe';
   document.body.prepend(iframe);
@@ -74,9 +75,22 @@ function createButton() {
   document.body.prepend(button);
   setButtonStyles(button);
 }
+function listenIframeMessages() {
+  window.addEventListener('message', function (event) {
+    if (event.origin !== iframeUrl) {
+      return;
+    }
+    switch (event.data) {
+      case 'close':
+        showButtonRemoveIframe();
+        break;
+    }
+  });
+}
 function startScript() {
   createButton();
   createOverlay();
+  listenIframeMessages();
 }
 
 startScript();
