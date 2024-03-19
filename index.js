@@ -27,14 +27,11 @@ function setStyles() {
       document.documentElement.scrollWidth -
       (likeButtonRect.left + likeButtonRect.width + window.pageXOffset);
 
-    buttonButton.style.width =
-      buttonButton.style.height =
-      buttonWrapper.style.height =
-      buttonWrapper.style.width =
-        likeButtonRect.width + 'px';
+    buttonButton.style.width = buttonButton.style.height =
+      likeButtonRect.width + 'px';
 
-    buttonWrapper.style.top = topPosition + 'px';
-    buttonWrapper.style.right =
+    buttonButton.style.top = topPosition + 'px';
+    buttonButton.style.right =
       rightPosition +
       likeButtonRect.width +
       (0.625 * window.innerWidth) / 100 +
