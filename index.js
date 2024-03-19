@@ -2,14 +2,21 @@ const iframeUrl = 'https://dialogsravnovesiedeviframe.netlify.app';
 const currentScript = 'script1';
 
 function createIframeHideButton(button) {
+  const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
   const overlay = document.querySelector('.quiz-plugin__overlay');
 
   button.classList.remove('visible');
   button.classList.add('hidden');
+  iframeWrapper.classList.remove('hidden');
   overlay.classList.remove('hidden');
+
+  setTimeout(() => {
+    iframeWrapper.classList.add('visible');
+  }, 0)
   createIframe();
 }
 function showButtonRemoveIframe(overlay) {
+  const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
   const iframe = document.querySelector('.quiz-plugin__iframe');
   const button = document.querySelector('.quiz-plugin__button');
 
@@ -17,7 +24,11 @@ function showButtonRemoveIframe(overlay) {
 
   overlay.classList.add('hidden');
   button.classList.remove('hidden');
-  setTimeout(() => button.classList.add('visible'), 0);
+  iframeWrapper.classList.add('hidden');
+  setTimeout(() => {
+    iframeWrapper.classList.remove('visible');
+    button.classList.add('visible');
+  }, 0);
   iframe.remove();
 }
 function createOverlay() {
@@ -28,9 +39,10 @@ function createOverlay() {
 }
 function createIframe() {
   const iframe = document.createElement('iframe');
+  const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
   iframe.setAttribute('src', `${iframeUrl}?scriptName=${currentScript}`);
   iframe.className = 'quiz-plugin__iframe';
-  document.body.prepend(iframe);
+  iframeWrapper.prepend(iframe);
 }
 function setButtonStyles(buttonButton) {
   const likeButton = document.querySelector(
@@ -72,6 +84,12 @@ function createButton() {
   document.body.prepend(button);
   setButtonStyles(button);
 }
+function createIframeWrapper() {
+  const wrapper = document.createElement('div');
+
+  wrapper.className = 'quiz-plugin__iframe-wrapper hidden';
+  document.body.prepend(wrapper);
+}
 function listenIframeMessages() {
   window.addEventListener('message', function (event) {
     if (event.origin !== iframeUrl) {
@@ -88,6 +106,7 @@ function listenIframeMessages() {
 function startScript() {
   createButton();
   createOverlay();
+  createIframeWrapper();
   listenIframeMessages();
 }
 
