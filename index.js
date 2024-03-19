@@ -1,25 +1,48 @@
-const button = document.createElement('button');
-const icon = document.createElement('div');
+const currentScript = 'script1';
 
-button.className = 'quiz-plugin__button';
-icon.className = 'quiz-plugin__button__icon';
+function createIframeHideButton(button) {
+  const overlay = document.querySelector('.quiz-plugin__overlay');
 
-button.addEventListener('click', () => alert('Hi!'));
+  button.classList.remove('visible');
+  button.classList.add('hidden');
+  overlay.classList.remove('hidden');
+  createIframe();
+}
+function showButtonRemoveIframe(overlay) {
+  const iframe = document.querySelector('.quiz-plugin__iframe');
+  const button = document.querySelector('.quiz-plugin__button');
 
-button.append(icon);
-document.body.prepend(button);
+  console.log('iframe', iframe);
 
-function setStyles() {
+  overlay.classList.add('hidden');
+  button.classList.remove('hidden');
+  setTimeout(() => button.classList.add('visible'), 0);
+  iframe.remove();
+}
+function createOverlay() {
+  const overlay = document.createElement('div');
+  overlay.className = 'quiz-plugin__overlay hidden';
+  overlay.addEventListener('click', () => showButtonRemoveIframe(overlay));
+  document.body.prepend(overlay);
+}
+function createIframe() {
+  const iframe = document.createElement('iframe');
+  iframe.setAttribute(
+    'src',
+    `https://dialogsravnovesiedev.netlify.app/?scriptName=${currentScript}`
+  );
+  iframe.className = 'quiz-plugin__iframe';
+  document.body.prepend(iframe);
+}
+function setButtonStyles(buttonButton) {
   const likeButton = document.querySelector(
     '.button-circle.button-circle_theme_white.favorite-state__button'
   );
-  const buttonButton = document.querySelector('.quiz-plugin__button');
 
   setTimeout(() => {
     if (buttonButton) buttonButton.classList.add('visible');
   }, 0);
 
-  console.log('likeButton', likeButton);
   if (likeButton && window.innerWidth > 1279) {
     const likeButtonRect = likeButton.getBoundingClientRect();
     const topPosition = likeButtonRect.top + window.pageYOffset;
@@ -38,18 +61,22 @@ function setStyles() {
       'px';
   }
 }
+function createButton() {
+  const button = document.createElement('button');
+  const icon = document.createElement('div');
 
-setStyles();
+  button.className = 'quiz-plugin__button';
+  icon.className = 'quiz-plugin__button__icon';
 
-// const iframe = document.createElement('iframe');
+  button.addEventListener('click', () => createIframeHideButton(button));
 
-// iframe.setAttribute('src', 'https://dialogsravnovesiedev.netlify.app/?title=111');
-// iframe.style.width = '100%';
-// iframe.style.height = '100%';
-// iframe.style.position = 'fixed';
-// iframe.style.top = '0';
-// iframe.style.left = '0';
-// iframe.style.border = 'none';
-// iframe.style.zIndex = '1000';
+  button.append(icon);
+  document.body.prepend(button);
+  setButtonStyles(button);
+}
+function startScript() {
+  createButton();
+  createOverlay();
+}
 
-// document.body.prepend(iframe);
+startScript();
