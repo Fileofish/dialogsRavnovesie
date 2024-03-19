@@ -79,7 +79,7 @@ function listenIframeMessages() {
     }
     switch (event.data) {
       case 'close':
-        const overlay = querySelector('.quiz-plugin__overlay');
+        const overlay = document.querySelector('.quiz-plugin__overlay');
         showButtonRemoveIframe(overlay);
         break;
     }
