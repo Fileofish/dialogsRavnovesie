@@ -125,7 +125,10 @@ function startScript() {
   createIframe();
   listenIframeMessages();
 
-  document.addEventListener('resize', () => setButtonStyles());
+  document.addEventListener('resize', () => {
+    console.log('resize');
+    setButtonStyles();
+  });
   setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
