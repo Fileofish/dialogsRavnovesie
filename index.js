@@ -132,7 +132,5 @@ function startScript() {
   setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOMContentLoaded');
-  setTimeout(() => startScript(), 1000);
-});
+console.log('DOMContentLoaded');
+setTimeout(() => startScript(), 1000);
