@@ -13,7 +13,6 @@ function createIframeHideButton(button) {
   setTimeout(() => {
     iframeWrapper.classList.add('visible');
   }, 0)
-  createIframe();
 }
 function showButtonRemoveIframe(overlay) {
   const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
@@ -29,7 +28,6 @@ function showButtonRemoveIframe(overlay) {
     iframeWrapper.classList.remove('visible');
     button.classList.add('visible');
   }, 0);
-  iframe.remove();
 }
 function createOverlay() {
   const overlay = document.createElement('div');
@@ -107,6 +105,7 @@ function startScript() {
   createButton();
   createOverlay();
   createIframeWrapper();
+  createIframe();
   listenIframeMessages();
 }
 
