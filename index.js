@@ -78,19 +78,13 @@ function setButtonStyles() {
       (0.625 * window.innerWidth) / 100 +
       'px';
   } else if (promotionButton) {
-    const promotionButtonRect = likeButton.getBoundingClientRect();
-    console.log(promotionButtonRect);
-    const topPosition = promotionButtonRect.top + window.pageYOffset;
-    const rightPosition =
-      document.documentElement.scrollWidth -
-      (promotionButtonRect.left +
-        promotionButtonRect.width +
-        window.pageXOffset);
+    const topPosition = promotionButton.offsetTop;
+    const rightPosition = promotionButton.offsetLeft;
 
-    button.style.width = promotionButtonRect.width + 'px';
-    button.style.height = promotionButtonRect.height + 'px';
+    button.style.width = promotionButton.offsetWidth + 'px';
+    button.style.height = promotionButton.offsetHeight + 'px';
     button.style.top = topPosition + 'px';
-    button.style.right = rightPosition + promotionButtonRect.width + 'px';
+    button.style.right = rightPosition + 'px';
   } else {
     button.removeAttribute('style');
   }
