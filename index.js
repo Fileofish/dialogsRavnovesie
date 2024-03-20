@@ -5,6 +5,7 @@ function createIframeHideButton(button) {
   const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
   const overlay = document.querySelector('.quiz-plugin__overlay');
 
+  document.body.appendChild(iframeWrapper);
   button.classList.remove('visible');
   button.classList.add('hidden');
   iframeWrapper.classList.remove('hidden');
