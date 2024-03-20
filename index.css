@@ -134,6 +134,7 @@
     margin: 0;
   }
   .quiz-plugin__button__text {
+    margin-top: 4px;
     display: block;
     margin: 0;
     font-family: 'Stolzl';
