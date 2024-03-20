@@ -39,6 +39,7 @@
   border-radius: 16px 16px 0 0;
 }
 .quiz-plugin__overlay {
+  overflow-y: scroll;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -49,7 +50,6 @@
   z-index: 1000;
 }
 .quiz-plugin__iframe-wrapper {
-  overflow-y: scroll;
   position: fixed;
   width: 100%;
   height: calc(100% - 104px);
