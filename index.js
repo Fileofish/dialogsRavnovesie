@@ -49,7 +49,7 @@ function createIframe() {
 }
 function setButtonStyles() {
   const promotionButton = document.querySelector(
-    'body > header > div.panel > div > ul > li:nth-child(2) > a'
+    'body > header > div.panel > div > ul > li:nth-child(2)'
   );
   const button = document.querySelector('.quiz-plugin__button');
   const likeButton = document.querySelector(
@@ -130,8 +130,11 @@ function checkIsButton() {
   const likeButton = document.querySelector(
     '.button-circle.button-circle_theme_white.favorite-state__button'
   );
+  const promotionButton = document.querySelector(
+    'body > header > div.panel > div > ul > li:nth-child(2)'
+  );
 
-  if (likeButton || window.innerWidth < 1280) {
+  if (likeButton || promotionButton) {
     setButtonStyles();
   } else {
     setTimeout(() => checkIsButton(), 500);
