@@ -86,7 +86,7 @@ function createIframeWrapper() {
   const wrapper = document.createElement('div');
 
   wrapper.className = 'quiz-plugin__iframe-wrapper hidden';
-  document.body.prepend(wrapper);
+  document.body.append(wrapper);
 }
 function listenIframeMessages() {
   window.addEventListener('message', function (event) {
