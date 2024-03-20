@@ -1,11 +1,20 @@
 const iframeUrl = 'https://dialogsravnovesiedeviframe.netlify.app';
 const currentScript = 'script1';
 
+function checkLastElementAndLocateIframe() {
+  console.log('checkLastElement')
+  const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
+  var lastChild = document.body.lastElementChild;
+
+  if (iframeWrapper !== lastChild) {
+    console.log('LocateIframe')
+    document.body.appendChild(iframeWrapper);
+  }
+}
 function createIframeHideButton(button) {
   const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
   const overlay = document.querySelector('.quiz-plugin__overlay');
 
-  document.body.appendChild(iframeWrapper);
   button.classList.remove('visible');
   button.classList.add('hidden');
   iframeWrapper.classList.remove('hidden');
@@ -109,6 +118,8 @@ function startScript() {
   createIframeWrapper();
   createIframe();
   listenIframeMessages();
+
+  setInterval(() => checkLastElementAndLocateIframe, 2000);
 }
 
 startScript();
