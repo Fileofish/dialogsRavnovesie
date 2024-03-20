@@ -116,8 +116,15 @@
     top: 0;
   }
   .quiz-plugin__button {
+    display: flex;
+    align-items: start;
     top: auto;
     right: auto;
+    bottom: 12px;
     border-radius: 0;
+  }
+
+  .quiz-plugin__button__icon {
+
   }
 }
