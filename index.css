@@ -32,6 +32,7 @@
   display: none;
 }
 .quiz-plugin__iframe {
+  overflow-y: scroll;
   width: 100%;
   height: 100%;
   border: none;
@@ -39,7 +40,6 @@
   border-radius: 16px 16px 0 0;
 }
 .quiz-plugin__overlay {
-  overflow-y: scroll;
   position: fixed;
   top: 0;
   bottom: 0;
