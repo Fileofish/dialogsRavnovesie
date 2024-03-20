@@ -116,28 +116,8 @@
     top: 0;
   }
   .quiz-plugin__button {
-    top: 10px;
-    right: calc(50% - 297.5px + 56px + 16px);
-    width: 40px;
-    height: 40px;
-    transform: translateX(50%);
-  }
-}
-@media (max-width: 629px) {
-  .quiz-plugin__button {
-    right: calc(56px + 16px);
-    transform: none;
-  }
-}
-@media (max-width: 432px) {
-  .quiz-plugin__button {
-    right: 24px;
-    top: calc(24px + 60px);
-  }
-}
-@media (max-width: 353px) {
-  .quiz-plugin__button {
-    right: calc(56px + 16px);
-    top: 45px;
+    top: auto;
+    right: auto;
+    border-radius: 0;
   }
 }
