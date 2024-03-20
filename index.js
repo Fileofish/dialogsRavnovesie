@@ -62,6 +62,7 @@ function setButtonStyles() {
   }, 0);
 
   if (likeButton && window.innerWidth > 1279) {
+    button.removeAttribute('style');
     const likeButtonRect = likeButton.getBoundingClientRect();
     const topPosition = likeButtonRect.top + window.pageYOffset;
     const rightPosition =
@@ -76,6 +77,7 @@ function setButtonStyles() {
       (0.625 * window.innerWidth) / 100 +
       'px';
   } else if (promotionButton) {
+    button.removeAttribute('style');
     button.style.width = promotionButton.offsetWidth + 'px';
     button.style.height = promotionButton.offsetHeight + 'px';
     button.style.left = promotionButton.offsetLeft + 'px';
