@@ -102,6 +102,7 @@ function listenIframeMessages() {
   });
 }
 function startScript() {
+  console.log('startScript');
   createButton();
   createOverlay();
   createIframeWrapper();
