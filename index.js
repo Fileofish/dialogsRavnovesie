@@ -54,7 +54,8 @@ function setButtonStyles() {
   );
 
   setTimeout(() => {
-    if (button) button.classList.add('visible');
+    if (button && !button.classList.contains('visible'))
+      button.classList.add('visible');
   }, 0);
 
   if (likeButton && window.innerWidth > 1279) {
@@ -124,6 +125,7 @@ function startScript() {
   createIframe();
   listenIframeMessages();
 
+  document.addEventListener('resize', () => setButtonStyles());
   setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
