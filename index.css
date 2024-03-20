@@ -118,6 +118,7 @@
   .quiz-plugin__button {
     display: flex;
     align-items: start;
+    justify-content: center;
     top: auto;
     right: auto;
     bottom: 12px;
@@ -125,6 +126,6 @@
   }
 
   .quiz-plugin__button__icon {
-
+    margin: 0;
   }
 }
