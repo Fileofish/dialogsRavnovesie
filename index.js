@@ -47,13 +47,14 @@ function createIframe() {
   iframe.className = 'quiz-plugin__iframe';
   iframeWrapper.prepend(iframe);
 }
-function setButtonStyles(buttonButton) {
+function setButtonStyles() {
+  const button = document.querySelector('.quiz-plugin__button');
   const likeButton = document.querySelector(
     '.button-circle.button-circle_theme_white.favorite-state__button'
   );
 
   setTimeout(() => {
-    if (buttonButton) buttonButton.classList.add('visible');
+    if (button) button.classList.add('visible');
   }, 0);
 
   if (likeButton && window.innerWidth > 1279) {
@@ -63,11 +64,9 @@ function setButtonStyles(buttonButton) {
       document.documentElement.scrollWidth -
       (likeButtonRect.left + likeButtonRect.width + window.pageXOffset);
 
-    buttonButton.style.width = buttonButton.style.height =
-      likeButtonRect.width + 'px';
-
-    buttonButton.style.top = topPosition + 'px';
-    buttonButton.style.right =
+    button.style.width = button.style.height = likeButtonRect.width + 'px';
+    button.style.top = topPosition + 'px';
+    button.style.right =
       rightPosition +
       likeButtonRect.width +
       (0.625 * window.innerWidth) / 100 +
@@ -85,7 +84,6 @@ function createButton() {
 
   button.append(icon);
   document.body.prepend(button);
-  setButtonStyles(button);
 }
 function createIframeWrapper() {
   const wrapper = document.createElement('div');
@@ -106,9 +104,21 @@ function listenIframeMessages() {
     }
   });
 }
+function checkIsButton() {
+  const likeButton = document.querySelector(
+    '.button-circle.button-circle_theme_white.favorite-state__button'
+  );
+
+  if (likeButton || window.innerWidth < 1280) {
+    setButtonStyles();
+  } else {
+    setTimeout(() => checkIsButton(), 500);
+  }
+}
 function startScript() {
   console.log('startScript');
   createButton();
+  checkIsButton();
   createOverlay();
   createIframeWrapper();
   createIframe();
@@ -117,7 +127,7 @@ function startScript() {
   setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log('DOMContentLoaded');
   setTimeout(() => startScript(), 1000);
 });
