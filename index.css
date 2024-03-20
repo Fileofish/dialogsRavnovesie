@@ -112,6 +112,9 @@
   }
 }
 @media (max-width: 1279px) {
+  .quiz-plugin__iframe-wrapper {
+    top: 0;
+  }
   .quiz-plugin__button {
     top: 10px;
     right: calc(50% - 297.5px + 56px + 16px);
