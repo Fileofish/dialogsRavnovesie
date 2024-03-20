@@ -72,6 +72,8 @@ function setButtonStyles() {
       likeButtonRect.width +
       (0.625 * window.innerWidth) / 100 +
       'px';
+  } else {
+    button.style = '';
   }
 }
 function createButton() {
