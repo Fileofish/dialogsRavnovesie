@@ -29,8 +29,6 @@ function showButtonRemoveIframe(overlay) {
   const iframe = document.querySelector('.quiz-plugin__iframe');
   const button = document.querySelector('.quiz-plugin__button');
 
-  console.log('iframe', iframe);
-
   overlay.classList.add('hidden');
   button.classList.remove('hidden');
   iframeWrapper.classList.add('hidden');
@@ -119,7 +117,7 @@ function startScript() {
   createIframe();
   listenIframeMessages();
 
-  setInterval(() => checkLastElementAndLocateIframe, 2000);
+  setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
 startScript();
