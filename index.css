@@ -134,11 +134,13 @@
     margin: 0;
   }
   .quiz-plugin__button__text {
+    display: block;
     margin: 0;
     font-family: 'Stolzl';
     font-size: 10.5px;
     line-height: 13px;
     text-align: center;
     letter-spacing: 0.01em;
+    color: #23585b;
   }
 }
