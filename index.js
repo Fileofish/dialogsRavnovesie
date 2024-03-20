@@ -117,6 +117,22 @@ function listenIframeMessages() {
         const overlay = document.querySelector('.quiz-plugin__overlay');
         showButtonRemoveIframe(overlay);
         break;
+      case 'scrollBot':
+        setTimeout(() => {
+          const container = document.querySelector(
+            '.quiz-plugin__iframe'
+          );
+          if (container) container.scrollTop = container.scrollHeight;
+        }, 500);
+        break;
+      case 'scrollTop':
+        setTimeout(() => {
+          const container = document.querySelector(
+            '.quiz-plugin__iframe'
+          );
+          if (container) container.scrollTop = 0;
+        }, 500);
+        break;
     }
   });
 }
