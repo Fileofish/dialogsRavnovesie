@@ -73,7 +73,7 @@ function setButtonStyles() {
       (0.625 * window.innerWidth) / 100 +
       'px';
   } else {
-    button.style = '';
+    button.removeAttribute('style');
   }
 }
 function createButton() {
