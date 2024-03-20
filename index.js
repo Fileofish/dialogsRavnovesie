@@ -100,7 +100,11 @@ function createButton() {
 
   button.append(icon);
   button.append(text);
-  header.insertAdjacentElement('afterend', button);
+  if (window.location.href.includes('127.0.0.1')) {
+    document.body.append(button);
+  } else {
+    header.insertAdjacentElement('afterend', button);
+  }
 }
 function createIframeWrapper() {
   const wrapper = document.createElement('div');
@@ -116,7 +120,10 @@ function listenIframeMessages() {
     switch (event.data) {
       case 'close':
         const overlay = document.querySelector('.quiz-plugin__overlay');
+        const iframe = document.querySelector('.quiz-plugin__iframe');
         showButtonRemoveIframe(overlay);
+        iframe.remove();
+        createIframe();
         break;
     }
   });
@@ -130,7 +137,12 @@ function checkIsButton() {
   );
   const preloader = document.querySelector('.preloader__bg');
 
-  if (!preloader && (likeButton || promotionButton)) {
+  if (
+    !preloader &&
+    (likeButton ||
+      promotionButton ||
+      window.location.href.includes('127.0.0.1'))
+  ) {
     setButtonStyles();
 
     window.addEventListener('resize', () => {
