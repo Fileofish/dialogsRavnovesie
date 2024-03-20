@@ -121,8 +121,8 @@
   .quiz-plugin__button {
     padding-top: 4px;
     display: flex;
-    align-items: start;
-    justify-content: center;
+    align-items: center;
+    justify-content: start;
     top: auto;
     right: auto;
     bottom: 12px;
