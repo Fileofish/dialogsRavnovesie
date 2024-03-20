@@ -127,15 +127,19 @@ function checkIsButton() {
   const promotionButton = document.querySelector(
     'body > header > div.panel > div > ul > li:nth-child(2)'
   );
+  const preloader = document.querySelector('.preloader__bg');
 
-  if (likeButton || promotionButton) {
+  if (!preloader && (likeButton || promotionButton)) {
     setButtonStyles();
+
+    window.addEventListener('resize', () => {
+      setButtonStyles();
+    });
   } else {
     setTimeout(() => checkIsButton(), 500);
   }
 }
 function startScript() {
-  console.log('startScript');
   createButton();
   checkIsButton();
   createOverlay();
@@ -143,12 +147,7 @@ function startScript() {
   createIframe();
   listenIframeMessages();
 
-  window.addEventListener('resize', () => {
-    setButtonStyles();
-  });
   setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
 setTimeout(() => startScript(), 1000);
-
-setInterval(() => console.log(document.querySelector('.preloader__bg')), 2000)
