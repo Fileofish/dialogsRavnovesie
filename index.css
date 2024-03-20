@@ -63,8 +63,7 @@
   transform: translateY(0);
 }
 .quiz-plugin__overlay.hidden,
-.quiz-plugin__button.hidden,
-.quiz-plugin__iframe-wrapper.hidden {
+.quiz-plugin__button.hidden {
   display: none;
 }
 
