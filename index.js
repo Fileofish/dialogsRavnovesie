@@ -125,7 +125,7 @@ function startScript() {
   createIframe();
   listenIframeMessages();
 
-  document.addEventListener('resize', () => {
+  window.addEventListener('resize', () => {
     console.log('resize');
     setButtonStyles();
   });
