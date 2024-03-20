@@ -88,13 +88,17 @@ function setButtonStyles() {
 function createButton() {
   const button = document.createElement('button');
   const icon = document.createElement('div');
+  const text = document.createElement('p');
 
   button.className = 'quiz-plugin__button';
   icon.className = 'quiz-plugin__button__icon';
+  text.className = 'quiz-plugin__button__text';
 
+  text.innerHTML = 'Акции';
   button.addEventListener('click', () => createIframeHideButton(button));
 
   button.append(icon);
+  button.append(text);
   document.body.prepend(button);
 }
 function createIframeWrapper() {
