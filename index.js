@@ -13,6 +13,7 @@ function createIframeHideButton(button) {
   setTimeout(() => {
     iframeWrapper.classList.add('visible');
   }, 0)
+  createIframe();
 }
 function showButtonRemoveIframe(overlay) {
   const iframeWrapper = document.querySelector('.quiz-plugin__iframe-wrapper');
@@ -28,6 +29,7 @@ function showButtonRemoveIframe(overlay) {
     iframeWrapper.classList.remove('visible');
     button.classList.add('visible');
   }, 0);
+  iframe.remove();
 }
 function createOverlay() {
   const overlay = document.createElement('div');
@@ -86,7 +88,7 @@ function createIframeWrapper() {
   const wrapper = document.createElement('div');
 
   wrapper.className = 'quiz-plugin__iframe-wrapper hidden';
-  document.body.append(wrapper);
+  document.body.prepend(wrapper);
 }
 function listenIframeMessages() {
   window.addEventListener('message', function (event) {
@@ -105,7 +107,6 @@ function startScript() {
   createButton();
   createOverlay();
   createIframeWrapper();
-  createIframe();
   listenIframeMessages();
 }
 
