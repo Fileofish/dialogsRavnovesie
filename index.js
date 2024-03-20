@@ -150,3 +150,5 @@ function startScript() {
 }
 
 setTimeout(() => startScript(), 1000);
+
+setInterval(() => console.log(document.querySelector('.preloader__bg')), 2000)
