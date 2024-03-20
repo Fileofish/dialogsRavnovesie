@@ -118,6 +118,7 @@ function listenIframeMessages() {
         showButtonRemoveIframe(overlay);
         break;
       case 'scrollBot':
+        console.log('scrollBot')
         setTimeout(() => {
           const container = document.querySelector(
             '.quiz-plugin__iframe'
@@ -126,6 +127,7 @@ function listenIframeMessages() {
         }, 500);
         break;
       case 'scrollTop':
+        console.log('scrollTop')
         setTimeout(() => {
           const container = document.querySelector(
             '.quiz-plugin__iframe'
