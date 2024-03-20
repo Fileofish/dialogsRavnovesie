@@ -6,7 +6,7 @@
   height: 3.75vw;
   background-color: #ffffff;
   border-radius: 50%;
-  z-index: 1001;
+  z-index: 6;
   transition: opacity 0.4s linear;
   opacity: 0;
   border: none;
