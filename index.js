@@ -89,6 +89,7 @@ function createButton() {
   const button = document.createElement('button');
   const icon = document.createElement('div');
   const text = document.createElement('p');
+  const header = document.querySelector('body > header');
 
   button.className = 'quiz-plugin__button';
   icon.className = 'quiz-plugin__button__icon';
@@ -99,7 +100,7 @@ function createButton() {
 
   button.append(icon);
   button.append(text);
-  document.body.prepend(button);
+  header.insertAdjacentElement('afterend', button);
 }
 function createIframeWrapper() {
   const wrapper = document.createElement('div');
