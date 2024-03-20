@@ -60,7 +60,7 @@
   border-radius: 16px 16px 0 0;
 }
 .quiz-plugin__iframe-wrapper.visible {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 .quiz-plugin__overlay.hidden,
 .quiz-plugin__button.hidden {
