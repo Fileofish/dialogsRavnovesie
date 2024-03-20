@@ -79,17 +79,18 @@ function setButtonStyles() {
       'px';
   } else if (promotionButton) {
     const promotionButtonRect = likeButton.getBoundingClientRect();
+    console.log(promotionButtonRect);
     const topPosition = promotionButtonRect.top + window.pageYOffset;
     const rightPosition =
       document.documentElement.scrollWidth -
-      (promotionButtonRect.left + promotionButtonRect.width + window.pageXOffset);
+      (promotionButtonRect.left +
+        promotionButtonRect.width +
+        window.pageXOffset);
 
     button.style.width = promotionButtonRect.width + 'px';
     button.style.height = promotionButtonRect.height + 'px';
     button.style.top = topPosition + 'px';
-    button.style.right =
-      rightPosition +
-      promotionButtonRect.width + 'px';
+    button.style.right = rightPosition + promotionButtonRect.width + 'px';
   } else {
     button.removeAttribute('style');
   }
