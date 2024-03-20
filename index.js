@@ -48,6 +48,9 @@ function createIframe() {
   iframeWrapper.prepend(iframe);
 }
 function setButtonStyles() {
+  const promotionButton = document.querySelector(
+    'body > header > div.panel > div > ul > li:nth-child(2) > a'
+  );
   const button = document.querySelector('.quiz-plugin__button');
   const likeButton = document.querySelector(
     '.button-circle.button-circle_theme_white.favorite-state__button'
@@ -72,6 +75,19 @@ function setButtonStyles() {
       likeButtonRect.width +
       (0.625 * window.innerWidth) / 100 +
       'px';
+  } else if (promotionButton) {
+    const promotionButtonRect = likeButton.getBoundingClientRect();
+    const topPosition = promotionButtonRect.top + window.pageYOffset;
+    const rightPosition =
+      document.documentElement.scrollWidth -
+      (promotionButtonRect.left + promotionButtonRect.width + window.pageXOffset);
+
+    button.style.width = promotionButtonRect.width + 'px';
+    button.style.height = promotionButtonRect.height + 'px';
+    button.style.top = topPosition + 'px';
+    button.style.right =
+      rightPosition +
+      promotionButtonRect.width + 'px';
   } else {
     button.removeAttribute('style');
   }
@@ -96,7 +112,7 @@ function createIframeWrapper() {
 }
 function listenIframeMessages() {
   window.addEventListener('message', function (event) {
-    console.log(event.data)
+    console.log(event.data);
     if (event.origin !== iframeUrl) {
       return;
     }
