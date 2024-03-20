@@ -78,13 +78,9 @@ function setButtonStyles() {
       (0.625 * window.innerWidth) / 100 +
       'px';
   } else if (promotionButton) {
-    const bottomPosition = promotionButton.offsetBottom;
-    const rightPosition = promotionButton.offsetRight;
-
     button.style.width = promotionButton.offsetWidth + 'px';
     button.style.height = promotionButton.offsetHeight + 'px';
-    button.style.bottom = bottomPosition + 'px';
-    button.style.right = rightPosition + 'px';
+    button.style.left = promotionButton.offsetLeft + 'px';
   } else {
     button.removeAttribute('style');
   }
