@@ -56,6 +56,8 @@ function setButtonStyles() {
     '.button-circle.button-circle_theme_white.favorite-state__button'
   );
 
+  console.log(promotionButton);
+
   setTimeout(() => {
     if (button && !button.classList.contains('visible'))
       button.classList.add('visible');
