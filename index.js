@@ -128,11 +128,9 @@ function startScript() {
   listenIframeMessages();
 
   window.addEventListener('resize', () => {
-    console.log('resize');
     setButtonStyles();
   });
   setInterval(() => checkLastElementAndLocateIframe(), 2000);
 }
 
-console.log('DOMContentLoaded');
 setTimeout(() => startScript(), 1000);
