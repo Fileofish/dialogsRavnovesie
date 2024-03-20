@@ -96,6 +96,7 @@ function createIframeWrapper() {
 }
 function listenIframeMessages() {
   window.addEventListener('message', function (event) {
+    console.log(event.data)
     if (event.origin !== iframeUrl) {
       return;
     }
